@@ -1,6 +1,6 @@
 const Post = require('../models/Post');
 //const sharp = require('sharp');
-const path = require('path');
+//const path = require('path');
 //const fs = require('fs');
 
 module.exports = {
@@ -14,8 +14,8 @@ module.exports = {
         const { author, place, description, hashtags } = req.body;
         const { filename: image } = req.file;
 
-        const [name] = image.split('.');
-        const fileName = `${name}.jpg`;
+        //const [name] = image.split('.');
+        //const fileName = `${name}.jpg`;
 
         //await sharp(req.file.path)
           //  .resize(500)
@@ -31,7 +31,7 @@ module.exports = {
             place,
             description,
             hashtags,
-            image: fileName,
+            image,
         });
 
         req.io.emit('post', post);
